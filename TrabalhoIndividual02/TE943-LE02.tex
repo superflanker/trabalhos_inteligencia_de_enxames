@@ -108,11 +108,19 @@ In summary:
 
 In Particle Swarm Optimization (PSO), the exploration and exploitation strategies are typically designed through the use of velocity and position updates for each particle in the swarm. The velocity update for each particle is a combination of the particle's current velocity, the particle's "personal best" position, the "global best" position found by the entire swarm, and a random factor. The position update is simply the current velocity added to the particle's current position. By adjusting the relative weights of the various components in the velocity update, the balance between exploration and exploitation can be controlled. In general, a higher weight for the global best position will lead to more exploitation, while a higher weight for the random factor will lead to more exploration.
 
-\section{Question 06}
+\section{We want to a binary GA (Genetic Algorithm) to find $x$ to a resolution of $0.1$ to minimize the two-dimensional Rastrigin function $(n=2)$ on the domain $[-5,5]$.}
 
-\subsection{title}
+\subsection{How many genes do we need for each chromosome?}
 
 The number of genes needed to solve the Rastrigin function in two dimensions with a genetic algorithm depends on a number of factors such as population size, mutation rate, selection method, and stopping criteria. Typically, more genes lead to more complex representations of potential solutions and may result in better solutions, but may also increase computation time. A good starting point would be to use a chromosome length equal to the number of dimensions in the problem (2 in this case), and adjust as needed based on experimentation.
+
+\subsection{How many bits do we need in each gene?}
+
+To solve the Rastrigin function in two dimensions with a resolution of 0.1 using a genetic algorithm, you need to use enough bits in each gene to represent the desired range and precision of the solution. The Rastrigin function is defined over the range of -5.0 to 5.0 for both dimensions, so you need to encode a value in each gene that can represent this range.
+
+To encode a value in a binary representation with a resolution of 0.1, you need to use a number of bits that can represent the range (-5.12, 5.12) with increments of 0.1. You can estimate the number of bits required by taking the base-2 logarithm of the range divided by the precision, and then rounding up to the nearest integer.
+
+In this case, the number of bits required is approximately log2((5.0-(-5.0))/0.1) = log2(10.0/0.1) = log2(100) = 6.64, so you would need to use 7 bits in each gene.
 
 \subsection{title}
 
