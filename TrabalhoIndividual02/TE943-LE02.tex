@@ -19,6 +19,7 @@
 \usepackage{epsfig} % for postscript graphics files
 \usepackage{mathptmx} % assumes new font selection scheme installed
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 
@@ -44,63 +45,163 @@
 
 \begin{IEEEkeywords}Optimization Problem; Linear Programming; Non-linear Programming;\end{IEEEkeywords}
 
-\section{Question 01}
+\section{Complete the following tables with the steps of a genetic algorithm (GA) during an evolutionary cycle:}
 
-\textbf{\textit{Given the design vector: $\vec{X} = \left\{ \mathbf{x}_{1}, \mathbf{x}_{2}, \mathbf{x}_{3}, \hdots \mathbf{x}_{n}\right\}^T$, match the following terms and descriptions:}}
+\subsection{Generation of initial population and evaluation of objective function}
+
+Generation: $0$.
+
+\begin{table}[H]
+	\centering
+	\caption{Initial population of solutions (maximizers) - generation 0}
+	\resizebox{\columnwidth}{!}{%
+	\label{question_01:letter_a}
+		
+	\begin{tabular}{|c|ccc|ccc|c|} 
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Member of\\Population\end{tabular}} & \multicolumn{3}{c|}{\begin{tabular}[c]{@{}c@{}}Genotype\\(binary representation)\\Base 2\end{tabular}} & \multicolumn{3}{c|}{\begin{tabular}[c]{@{}c@{}}Fenotype\\(decimal representation)\\Base 10\end{tabular}} & \begin{tabular}[c]{@{}c@{}}(maximization)\\Objective function\\f\end{tabular}  \\ 
+		\cline{2-8}
+		& $g_1$    & $g_2$    & $g_3$ & $x_1$  & $x_2$  & $x_3$ & $f= x_1 + x_2 + x_3$ \\ 
+		\hline
+		1 & 001.110 & 001.100 & 011.100 & 1.750 & 1.500 & 3.500 & 6.750 \\ 
+		2 & 000.001 & 000.010 & 001.111 & 0.125 & 0.250 & 1.875 & 2.250 \\ 
+		3 & 101.110 & 110.011 & 100.110 & 5.250 & 6.375 & 4.750 & 16.375 \\ 
+		4 & 010.011 & 010.110 & 000.000 & 2.375 & 2.750 & 0.000 & 5.125 \\ 
+		\hline
+		Best Member & \multicolumn{6}{l|}{} &3 \\
+		\hline
+	\end{tabular}
+	}
+\end{table}
+
+\subsection{Apply the crossover operation after selection using roulette selection}
+
+\begin{table}[H]
+	\centering
+	\caption{Crossover operation - generation 0}
+	\resizebox{\columnwidth}{!}{%
+		\label{question_01:letter_b}
+		
+		\begin{tabular}{|c|ccc|ccc|} 
+			\hline
+			\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Selected \\Members\\ to Match\end{tabular}} & \multicolumn{3}{c|}{\begin{tabular}[c]{@{}c@{}}Genotype\\(binary representation)\\Base 2\end{tabular}} & \multicolumn{3}{c|}{\begin{tabular}[c]{@{}c@{}}Fenotype\\(decimal representation)\\Base 10\end{tabular}}
+			\\ 
+			\cline{2-7}
+			& $g_1$ & $g_2$ & $g_3$ & $x_1$ & $x_2$ & $x_3$\\
+			\hline
+			1 and 2 & 000.110 & 000.100 & 001.100 & 0.750 & 0.500 & 1.500\\
+			1 and 2 & 001.001 & 001.010 & 011.111 & 1.125 & 1.250 & 3.875\\
+			2 and 3 & 000.010 & 000.011 & 001.110 & 0.250 & 0.375 & 1.750\\
+			2 and 3 & 101.001 & 110.010 & 100.111 & 5.125 & 6.250 & 4.875\\
+			\hline
+		\end{tabular}
+	}
+\end{table}
+
+\subsection{Apply the mutation operation}
+
+\begin{table}[H]
+	\centering
+	\caption{Mutation Operation - generation 0}
+	\resizebox{\columnwidth}{!}{%
+		\label{question_01:letter_c}
+		
+		\begin{tabular}{|c|ccc|ccc|} 
+			\hline
+			\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Members \\to Apply the \\ mutation\end{tabular}} & \multicolumn{3}{c|}{\begin{tabular}[c]{@{}c@{}}Genotype\\(binary representation)\\Base 2\end{tabular}} & \multicolumn{3}{c|}{\begin{tabular}[c]{@{}c@{}}Fenotype\\(decimal representation)\\Base 10\end{tabular}}
+			\\ 
+			\cline{2-7}
+			& $g_1$ & $g_2$ & $g_3$ & $x_1$ & $x_2$ & $x_3$\\
+			\hline
+			1: yes & 010.010 & 000.110 & 101.100 & 2.250 & 0.750 & 5.500\\
+			2: no & 001.001 & 001.010 & 011.111 & 1.125 & 1.250 & 3.875\\
+			3: yes & 100.000 & 010.011 & 101.110 & 4.000 & 2.375 & 5.750\\
+			4: no & 101.001 & 110.010 & 100.111 & 5.125 & 6.250 & 4.875\\
+			\hline
+		\end{tabular}
+	}
+\end{table}
+
+\subsection{New population of solutions and evaluation of objective function}
+
+Generation : $1$.
+
+\begin{table}[H]
+	\centering
+	\caption{New population of solutions (maximizers) - generation 1}
+	\resizebox{\columnwidth}{!}{%
+	\label{question_01:letter_d}
+	
+	\begin{tabular}{|c|ccc|ccc|c|} 
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Member of\\Population\end{tabular}} & \multicolumn{3}{c|}{\begin{tabular}[c]{@{}c@{}}Genotype of the\\current population\\(binary representation)\\Base 2\end{tabular}} & \multicolumn{3}{c|}{\begin{tabular}[c]{@{}c@{}}Fenotype of the\\current population\\(decimal representation)\\Base 10\end{tabular}} & \begin{tabular}[c]{@{}c@{}}(maximization)\\Objective function\\f\end{tabular}  \\ 
+		\cline{2-8}
+		& $g_1$    & $g_2$    & $g_3$ & $x_1$  & $x_2$  & $x_3$ & $f= x_1 + x_2 + x_3$ \\ 
+		\hline
+		1 & 010.010 & 000.110 & 101.100 & 2.250 & 0.750 & 5.500 & 8.500 \\ 
+		2 & 001.001 & 001.010 & 011.111 & 1.125 & 1.250 & 3.875 & 6.250 \\ 
+		3 & 100.000 & 010.011 & 101.110 & 4.000 & 2.375 & 5.750 & 12.125 \\ 
+		4 & 101.001 & 110.010 & 100.111 & 5.125 & 6.250 & 4.875 & 16.250 \\ 
+		\hline
+		Best Member & \multicolumn{6}{l|}{} &4 \\
+		\hline
+	\end{tabular}
+}
+\end{table}
 
 \section{What are the differences between heuristics, metaheuristics,and hyperheuristics?}
 
-Heuristics are simple, practical methods for finding approximate solutions to problems that are not guaranteed to be optimal. They are based on a set of rules or strategies that are usually derived from experience and expert knowledge.
-
-Metaheuristics are algorithms that use heuristics to solve complex optimization problems. They are more sophisticated than heuristics, as they adapt and change the heuristics they use based on the problem and the results of previous iterations.
-
-Hyperheuristics are a level above metaheuristics, as they use higher-level strategies to choose and control the metaheuristics used to solve a problem. Instead of using a fixed set of heuristics, hyperheuristics dynamically select and adjust the heuristics they use based on the problem, performance, and other factors.
-
-In summary:
 \begin{itemize}
-	\item Heuristics are simple, practical methods for finding approximate solutions.
-	\item Metaheuristics are algorithms that use heuristics to solve complex problems.
-	\item Hyperheuristics are algorithms that use higher-level strategies to control and choose the metaheuristics used to solve a problem.
+	\item \textbf{\textit{Heuristics are simple, practical methods for finding approximate solutions: }}Heuristics are simple, practical methods for finding approximate solutions to problems that are not guaranteed to be optimal. They are based on a set of rules or strategies that are usually derived from experience and expert knowledge.
+	\item \textbf{\textit{Metaheuristics are algorithms that use heuristics to solve complex problems: }}Metaheuristics are algorithms that use heuristics to solve complex optimization problems. They are more sophisticated than heuristics, as they adapt and change the heuristics they use based on the problem and the results of previous iterations.
+	\item \textbf{\textit{Hyperheuristics are algorithms that use higher-level strategies to control and choose the metaheuristics used to solve a problem: }} Hyperheuristics are a level above metaheuristics, as they use higher-level strategies to choose and control the metaheuristics used to solve a problem. Instead of using a fixed set of heuristics, hyperheuristics dynamically select and adjust the heuristics they use based on the problem, performance, and other factors.
+	
 \end{itemize}
 
-\section{Question 03: }
+\section{Considering the optimization problem $min$ $f(x)$ illustrated in figure (Rosenbrock 2D): }
 
-\section{Question 04: }
+\subsection{What are the independent variables of $f(x)$?}
+
+The independent variables of a function $f(x)$ are the inputs or arguments of the function. They determine the output or value of the function, which is represented by the dependent variable. 
+
+In the case of Rosenbrock 2D function, the independent variables are $(x_1, x_2)$.
+
+\subsection{What are the decision variables of $f(x)$?}
+
+The decision variables of a function $f(x)$ are the variables that can be chosen or controlled in order to optimize the output or value of the function. In optimization problems, decision variables are often subject to constraints that limit the values they can take, and the goal is to find the optimal values of the decision variables that maximize or minimize the function.
+
+In the case of Rosenbrock 2D function, the decision variables are $(x_1, x_2)$.
+
+\subsection{Rewrite this problem as a maximization problem.}
+
+To rewrite the problem as a maximization problem, we need to rewrite $f(x)$ as:
+
+\begin{equation}
+	f_1(x) = -f(x) = -\sum_{i=1}^{d-1} 100 (x_{i+1} - x_i^2) + (x_i - 1)^2\\	
+\end{equation}
+
+and solve $max$ $f_1(x)$.
+
+\section{Answer the questions below: }
 
 \subsection{What is the difference between exploration and exploitation?}
 
-Exploration and exploitation are terms used in decision making and refer to two different approaches in achieving a goal.
+Exploration refers to seek out new and diverse options and trying new things, often at the risk of not immediately achieving the goal. The goal of exploration is to gather information and increase the available options to make a more informed decision in the future.
 
-Exploration refers to seeking out new and diverse options and trying new things, often at the risk of not immediately achieving the goal. The goal of exploration is to gather information and increase the available options to make a more informed decision in the future.
-
-Exploitation, on the other hand, refers to using the information already gained to make the most of the current options in order to achieve the goal as efficiently as possible. The goal of exploitation is to make the best use of known information and resources to maximize rewards or benefits.
-
-In summary, exploration involves seeking new information, while exploitation involves using existing information.
+Exploitation refers to using the information already gained to make the most of the current options in order to achieve the goal as efficiently as possible. The goal of exploitation is to make the best use of known information and resources to maximize rewards or benefits.
 
 \subsection{What is the difference between intensification and diversification?}
-Intensification and diversification are two important concepts in metaheuristics and hyperheuristics.
 
-Intensification refers to the process of focusing search efforts on a promising region of the search space. It aims to improve the quality of the solutions in that region by applying more intensive search techniques, such as local search, hill climbing, or simulated annealing. Intensification is used to refine and improve solutions that are already promising, to increase the chance of finding an optimal solution.
-
-Diversification, on the other hand, refers to the process of expanding the search efforts to different regions of the search space. It aims to explore new and potentially promising regions of the search space that have not yet been explored. Diversification is used to avoid getting stuck in a local optimum, to escape from an unfavorable situation, or to find new and better solutions.
-
-In summary:
 \begin{itemize}
-	\item Intensification focuses search efforts on a promising region to refine and improve solutions.
-	\item Diversification expands search efforts to different regions to explore new and potentially better solutions.
+	\item \textbf{\textit{Intensification focuses search efforts on a promising region to refine and improve solutions: }}Intensification refers to the process of focusing search efforts on a promising region of the search space. It aims to improve the quality of the solutions in that region by applying more intensive search techniques, such as local search, hill climbing, or simulated annealing. Intensification is used to refine and improve solutions that are already promising, to increase the chance of finding an optimal solution.
+	\item \textbf{\textit{Diversification expands search efforts to different regions to explore new and potentially better solutions: }}Diversification refers to the process of expanding the search efforts to different regions of the search space. It aims to explore new and potentially promising regions of the search space that have not yet been explored. Diversification is used to avoid getting stuck in a local optimum, to escape from an unfavorable situation, or to find new and better solutions.
 \end{itemize}
 
 \subsection{What is the difference between global search and local search?}
-Global search and local search are two types of search strategies used in optimization algorithms.
 
-Global search refers to a type of search strategy that explores the entire search space to find the best solution. It aims to find a globally optimal solution by considering all possible solutions and choosing the best one. Global search algorithms are typically used to solve problems where the solutions are not easily predictable and the search space is large. Examples of global search algorithms include genetic algorithms, particle swarm optimization, and simulated annealing.
-
-Local search, on the other hand, refers to a type of search strategy that focuses on refining solutions that are already promising. It aims to find a locally optimal solution by making small, incremental changes to the current solution. Local search algorithms are typically used to solve problems where the solutions are predictable and the search space is small. Examples of local search algorithms include hill climbing, gradient descent, and tabu search.
-
-In summary:
 \begin{itemize}
-	\item Global search explores the entire search space to find the best solution.
-	\item Local search focuses on refining solutions that are already promising.
+	\item \textbf{\textit{Global search explores the entire search space to find the best solution: }}Global search refers to a type of search strategy that explores the entire search space to find the best solution. It aims to find a globally optimal solution by considering all possible solutions and choosing the best one. Global search algorithms are typically used to solve problems where the solutions are not easily predictable and the search space is large. Examples of global search algorithms include genetic algorithms, particle swarm optimization, and simulated annealing.
+	\item \textbf{\textit{Local search focuses on refining solutions that are already promising: }}Local search refers to a type of search strategy that focuses on refining solutions that are already promising. It aims to find a locally optimal solution by making small, incremental changes to the current solution. Local search algorithms are typically used to solve problems where the solutions are predictable and the search space is small. Examples of local search algorithms include hill climbing, gradient descent, and tabu search.
 \end{itemize}
 
 
@@ -108,7 +209,7 @@ In summary:
 
 In Particle Swarm Optimization (PSO), the exploration and exploitation strategies are typically designed through the use of velocity and position updates for each particle in the swarm. The velocity update for each particle is a combination of the particle's current velocity, the particle's "personal best" position, the "global best" position found by the entire swarm, and a random factor. The position update is simply the current velocity added to the particle's current position. By adjusting the relative weights of the various components in the velocity update, the balance between exploration and exploitation can be controlled. In general, a higher weight for the global best position will lead to more exploitation, while a higher weight for the random factor will lead to more exploration.
 
-\section{We want to a binary GA (Genetic Algorithm) to find $x$ to a resolution of $0.1$ to minimize the two-dimensional Rastrigin function $(n=2)$ on the domain $[-5,5]$.}
+\section{We want a binary GA (Genetic Algorithm) to find $x$ to a resolution of $0.1$ to minimize the two-dimensional Rastrigin function $(n=2)$ on the domain $[-5,5]$.}
 
 \subsection{How many genes do we need for each chromosome?}
 
@@ -118,12 +219,13 @@ The number of genes needed to solve the Rastrigin function in two dimensions wit
 
 To solve the Rastrigin function in two dimensions with a resolution of 0.1 using a genetic algorithm, you need to use enough bits in each gene to represent the desired range and precision of the solution. The Rastrigin function is defined over the range of -5.0 to 5.0 for both dimensions, so you need to encode a value in each gene that can represent this range.
 
-To encode a value in a binary representation with a resolution of 0.1, you need to use a number of bits that can represent the range (-5.12, 5.12) with increments of 0.1. You can estimate the number of bits required by taking the base-2 logarithm of the range divided by the precision, and then rounding up to the nearest integer.
+To encode a value in a binary representation with a resolution of 0.1, you need to use a number of bits that can represent the range $(-5.0, 5.0)$ with increments of 0.1. You can estimate the number of bits required by taking the base-2 logarithm of the range divided by the precision, and then rounding up to the nearest integer.
 
-In this case, the number of bits required is approximately log2((5.0-(-5.0))/0.1) = log2(10.0/0.1) = log2(100) = 6.64, so you would need to use 7 bits in each gene.
+In this case, the number of bits required is approximately $log_2\left(\frac{5.0-(-5.0)}{0.1}\right) = log_2\left(\frac{10.0}{0.1}\right) = log_2(100) = 6.64$, so we would need to use 7 bits in each gene.
 
-\subsection{title}
+\subsection{Given your answer to part (b), what is the resolution of each element of x?}
 
+Considering 3 bits for integer part and the remaining bits for the fractional part of the gene (i.e, the cutting point of the gene), the resolution achieved is of $\frac{1}{16} = 0.0625$.
 
 
 \section{How could you change the differential evolution algorithm to be non-elitist?}
@@ -151,7 +253,9 @@ To implement a non-elitist DE algorithm, you could change the selection mechanis
 
 EP is generally considered to be a more "explicit" optimization algorithm, while ES is considered to be a more "implicit" optimization algorithm. Both algorithms can be effective for solving continuous optimization problems, but the choice between the two depends on the specific requirements of the problem being solved.
 
-\section{Present step-by-step to the approach named harmony search algorithm (Geem et al., 2001) applied to a general continuous optimization problem?}
+\section{Present step-by-step to the approach named harmony search algorithm (Geem et al., 2001) applied to a general continuous optimization problem}
+
+The \textit{Harmony Search Algorithm} (HSA) is implemented by doing the following steps:
 
 \begin{itemize}
 	\item \textbf{\textit{Initialization:}} Initialize the variables required for the HSA such as the harmony memory size, harmony memory considering rate, pitch adjusting rate, and the stopping criteria.
